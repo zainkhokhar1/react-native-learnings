@@ -1,14 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, Text, View, Image, Pressable,Button,Modal} from 'react-native';
-import PressableComponent from './Topics/PressableComponent';
-import ModalComponent from './Topics/ModalComponent';
-import ImageComponent from './Topics/ImageComponent';
-import TextComponent from './Topics/TextComponent';
-import StatusBarComponent from './Topics/StatusBarComponent';
+import PressableComponent from './Topics/Day1/PressableComponent';
+import ModalComponent from './Topics/Day2/ModalComponent';
+import ImageComponent from './Topics/Day1/ImageComponent';
+import TextComponent from './Topics/Day1/TextComponent';
+import StatusBarComponent from './Topics/Day1/StatusBarComponent';
+import ActivityIndicatorComponent from './Topics/Day2/ActivityIndicatorComponent';
+import AlertComponent from './Topics/Day2/AlertComponent';
 
 export default function App() {
   const [openModal,setOpenModal] = useState(false);
+  const [loading,setLoading] = useState(false);
 
   return (
 
@@ -24,6 +27,17 @@ export default function App() {
        <ModalComponent openModal={openModal} setOpenModal={setOpenModal}/>
 
        <StatusBarComponent />
+
+       <Pressable onPress={()=>setLoading(!loading)}>
+        <Text style={{color:"white",fontSize:20,textAlign:'center', marginBlock:10, backgroundColor:"green",paddingBlock:14, width:"80%",marginInline:"auto"}}>
+          Show Loading
+        </Text>
+       </Pressable>
+
+       <ActivityIndicatorComponent isLoading={loading}/>
+
+       <AlertComponent/>
+
 
     </View>
   );
