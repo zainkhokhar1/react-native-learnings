@@ -1,0 +1,44 @@
+{
+    "data": [
+        {
+            "title": "1st Section",
+            "data": [
+                {
+                    "para": "This is me the first content",
+                    "btnText": "Open 1st"
+                }
+            ]
+        },
+        {
+            "title": "2nd Section",
+            "data": [
+                {
+                    "para": "This is me the second content",
+                    "btnText": "Open 2nd"
+                }
+            ]
+        },
+        {
+            "title": "3rd Section",
+            "data": [
+                {
+                    "para": "This is me the third content",
+                    "btnText": "Open 3rd"
+                }
+            ]
+        },
+        {
+            "title": "4th Section",
+            "data": [
+                {
+                    "para": "This is me the fourth content",
+                    "btnText": "Open 4th"
+                },
+                {
+                    "para": "Another item in 4th section",
+                    "btnText": "Additional Item"
+                }
+            ]
+        }
+    ]
+}
