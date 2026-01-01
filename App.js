@@ -17,6 +17,8 @@ import SectionListComponent from './Topics/Day3.js/lists//SectionListComponent.j
 import CustomInput from './Topics/Day3.js/inputs/CustomInput.js';
 import CustomSwitch from './Topics/Day3.js/inputs/CustomSwitch.js';
 import LoginForm from './Topics/Day3.js/inputs/LoginForm.js';
+import UsersScreen from './Topics/Day3.js/api-calls/UsersScreen.js';
+import PostsScreen from './Topics/Day3.js/api-calls/PostsScreen.js';
 
 export default function App() {
   const [openModal, setOpenModal] = useState(false);
@@ -65,7 +67,11 @@ export default function App() {
 
         {/* <CustomSwitch /> */}
 
-        <LoginForm />
+        {/* <LoginForm /> */}
+
+        {/* <UsersScreen /> */}
+
+        <PostsScreen />
 
       </View>
 
