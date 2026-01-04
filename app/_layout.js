@@ -1,4 +1,5 @@
 import { Slot, Stack, Tabs } from 'expo-router';
+import { Drawer } from 'expo-router/drawer';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Text } from 'react-native';
 import { View } from 'react-native';
@@ -38,14 +39,11 @@ export default function RootLayout() {
 
             </Stack> */}
 
-            <Tabs
+            {/* <Tabs
                 screenOptions={{
                     headerStyle: {
                         height: 80,
                         backgroundColor: '#6200ee',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
                     },
                     headerTintColor: '#fff',
                     headerTitleStyle: {
@@ -65,41 +63,49 @@ export default function RootLayout() {
                         tabBarBadge: 3,
                         tabBarIcon: ({ color }) => <FontAwesome size={28} name="home" color={color} />
                     }} />
+
                 <Tabs.Screen
-                    name="about"
-                    options={{ title: 'About' ,
-                    tabBarIcon: ({ color }) => <FontAwesome size={28} name="info-circle" color={color} />
-                    }}
-                />
-                
-                <Tabs.Screen 
                     name="users"
-                    options={{ title: 'Users' ,
-                    tabBarIcon: ({ color }) => <FontAwesome size={28} name="users" color={color} />
+                    options={{
+                        title: 'Users',
+                        tabBarIcon: ({ color }) => <FontAwesome size={28} name="users" color={color} />
                     }} />
 
                 <Tabs.Screen
                     name="posts"
-                    options={{ title: 'Posts' ,
-                    tabBarIcon: ({ color }) => <FontAwesome size={28} name="file-text" color={color} />
+                    options={{
+                        title: 'Posts',
+                        tabBarIcon: ({ color }) => <FontAwesome size={28} name="file-text" color={color} />
                     }}
                 />
 
-                <Tabs.Screen
-                    name="contact"
-                    options={{ title: 'Contact' ,
-                    tabBarIcon: ({ color }) => <FontAwesome size={28} name="phone" color={color} />
-                    }}
-
-                />
                 <Tabs.Screen
                     name='+not-found'
-                    options={{ title: 'Not found',
-                    tabBarIcon: ({ color }) => <FontAwesome size={28} name="exclamation-triangle" color={color} />
-                     }}
+                    options={{
+                        title: 'Not found',
+                        href: null, // this will hide the tab from the bottom tab bar  
+                        tabBarIcon: ({ color }) => <FontAwesome size={28} name="exclamation-triangle" color={color} />
+                    }}
                 />
 
-            </Tabs>
+            </Tabs> */}
+
+            <Drawer >
+                <Drawer.Screen
+                    name="index" // This is the name of the page and must match the url from root
+                    options={{
+                        drawerLabel: 'Home',
+                        title: 'overview',
+                    }}
+                />
+                <Drawer.Screen
+                    name="user" // This is the name of the page and must match the url from root
+                    options={{
+                        drawerLabel: 'User',
+                        title: 'overview',
+                    }}
+                />
+            </Drawer>
 
             {/* <View style={{ height: 80, backgroundColor: '#ee4300ff', display: 'flex', alignItems: 'center', justifyContent: 'center' }} >
                 <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', textAlign: 'center', lineHeight: 50 }}>Footer
