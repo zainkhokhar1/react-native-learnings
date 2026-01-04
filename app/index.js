@@ -1,5 +1,5 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
-import { router } from 'expo-router';
+import { Link, router } from 'expo-router';
 
 export default function Home() {
     return (
@@ -27,6 +27,12 @@ export default function Home() {
         >
             <Text style={styles.buttonText}>Go to About</Text>
         </Pressable>
+
+        <Link href={'/modal'}
+            style={[styles.button, { textAlign: 'center' }]}
+        >
+            <Text style={styles.buttonText}>Open Modal</Text>
+        </Link>
 
         </View>
     );

@@ -13,7 +13,7 @@ export default function RootLayout() {
                 </Text>
             </View> */}
 
-            {/* <Stack
+            <Stack
                 screenOptions={{
                     headerStyle: {
                         height: 80,
@@ -37,7 +37,16 @@ export default function RootLayout() {
                 <Stack.Screen name="contact" options={{ title: 'Contact' }} />
                 <Stack.Screen name='+not-found' options={{ title: 'Oops!' }} />
 
-            </Stack> */}
+                <Stack.Screen
+                    name="modal"
+                    options={{
+                        title: 'Modal',
+                        presentation: 'modal',
+                        href: null, // this will hide the tab from the bottom tab bar  
+                    }}
+                />
+
+            </Stack>
 
             {/* <Tabs
                 screenOptions={{
@@ -90,7 +99,7 @@ export default function RootLayout() {
 
             </Tabs> */}
 
-            <Drawer >
+            {/* <Drawer >
                 <Drawer.Screen
                     name="index" // This is the name of the page and must match the url from root
                     options={{
@@ -105,7 +114,7 @@ export default function RootLayout() {
                         title: 'overview',
                     }}
                 />
-            </Drawer>
+            </Drawer> */}
 
             {/* <View style={{ height: 80, backgroundColor: '#ee4300ff', display: 'flex', alignItems: 'center', justifyContent: 'center' }} >
                 <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', textAlign: 'center', lineHeight: 50 }}>Footer
