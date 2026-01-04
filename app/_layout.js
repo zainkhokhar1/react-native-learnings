@@ -3,6 +3,7 @@ import { Drawer } from 'expo-router/drawer';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Text } from 'react-native';
 import { View } from 'react-native';
+import "../global.css";
 
 export default function RootLayout() {
     return (

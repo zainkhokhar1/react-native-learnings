@@ -3,38 +3,52 @@ import { Link, router } from 'expo-router';
 
 export default function Home() {
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Home Page</Text>
-            <Text style={styles.subtitle}>Welcome to your React Native App with Expo Router</Text>
+        // <View style={styles.container}>
+        //     <Text style={styles.title}>Home Page</Text>
+        //     <Text style={styles.subtitle}>Welcome to your React Native App with Expo Router</Text>
+
+        //     <Pressable
+        //         style={styles.button}
+        //         onPress={() => router.push('/posts')}
+        //     >
+        //         <Text style={styles.buttonText}>Go to Posts</Text>
+        //     </Pressable>
+
+        //     <Pressable
+        //         style={styles.button}
+        //         onPress={() => router.push('/users')}
+        //     >
+        //         <Text style={styles.buttonText}>Go to Users</Text>
+        //     </Pressable>
+
+        //     <Pressable
+        //     style={styles.button}
+        //     onPress={() => router.push('/about')}
+        // >
+        //     <Text style={styles.buttonText}>Go to About</Text>
+        // </Pressable>
+
+        // <Link href={'/modal'}
+        //     style={[styles.button, { textAlign: 'center' }]}
+        // >
+        //     <Text style={styles.buttonText}>Open Modal</Text>
+        // </Link>
+
+        // </View>
+
+        <View className="flex-1 bg-gray-800 items-center justify-center p-5">
+            <Text className="text-4xl font-bold text-white mb-2">Home Page</Text>
+            <Text className="text-lg text-gray-300 mb-10 text-center">Welcome to your React Native App with Expo Router and Nativewind</Text>
 
             <Pressable
-                style={styles.button}
+
+                className="bg-purple-600 py-4 px-8 rounded-lg mb-4 w-4/5 items-center"
                 onPress={() => router.push('/posts')}
             >
-                <Text style={styles.buttonText}>Go to Posts</Text>
+                <Text className="text-white text-lg font-bold">Go to Posts</Text>
             </Pressable>
-
-            <Pressable
-                style={styles.button}
-                onPress={() => router.push('/users')}
-            >
-                <Text style={styles.buttonText}>Go to Users</Text>
-            </Pressable>
-
-            <Pressable
-            style={styles.button}
-            onPress={() => router.push('/about')}
-        >
-            <Text style={styles.buttonText}>Go to About</Text>
-        </Pressable>
-
-        <Link href={'/modal'}
-            style={[styles.button, { textAlign: 'center' }]}
-        >
-            <Text style={styles.buttonText}>Open Modal</Text>
-        </Link>
-
         </View>
+
     );
 }
 
