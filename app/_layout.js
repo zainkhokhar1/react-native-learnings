@@ -18,9 +18,6 @@ export default function RootLayout() {
                     headerStyle: {
                         height: 80,
                         backgroundColor: '#6200ee',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
                     },
                     headerTintColor: '#fff',
                     headerTitleStyle: {
