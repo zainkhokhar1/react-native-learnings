@@ -1,40 +1,13 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import { Link, router } from 'expo-router';
+import { CounterContext } from "../hooks/CounterHook";
+import { useContext } from "react";
 
 export default function Home() {
+
+    const { count, increment, decrement, reset } = useContext(CounterContext);
+
     return (
-        // <View style={styles.container}>
-        //     <Text style={styles.title}>Home Page</Text>
-        //     <Text style={styles.subtitle}>Welcome to your React Native App with Expo Router</Text>
-
-        //     <Pressable
-        //         style={styles.button}
-        //         onPress={() => router.push('/posts')}
-        //     >
-        //         <Text style={styles.buttonText}>Go to Posts</Text>
-        //     </Pressable>
-
-        //     <Pressable
-        //         style={styles.button}
-        //         onPress={() => router.push('/users')}
-        //     >
-        //         <Text style={styles.buttonText}>Go to Users</Text>
-        //     </Pressable>
-
-        //     <Pressable
-        //     style={styles.button}
-        //     onPress={() => router.push('/about')}
-        // >
-        //     <Text style={styles.buttonText}>Go to About</Text>
-        // </Pressable>
-
-        // <Link href={'/modal'}
-        //     style={[styles.button, { textAlign: 'center' }]}
-        // >
-        //     <Text style={styles.buttonText}>Open Modal</Text>
-        // </Link>
-
-        // </View>
 
         <View className="flex-1 bg-gray-800 items-center justify-center p-5">
             <Text className="text-4xl font-bold text-white mb-2">Home Page</Text>
@@ -47,8 +20,29 @@ export default function Home() {
             >
                 <Text className="text-white text-lg font-bold">Go to Posts</Text>
             </Pressable>
-        </View>
 
+            <View>
+                <Text className="text-white text-lg font-bold">Count: {count}</Text>
+                <Pressable
+                    className="bg-purple-600 py-4 px-8 rounded-lg mb-4 w-4/5 items-center"
+                    onPress={() => increment()}
+                >
+                    <Text className="text-white text-lg font-bold">Increment</Text>
+                </Pressable>
+                <Pressable
+                    className="bg-purple-600 py-4 px-8 rounded-lg mb-4 w-4/5 items-center"
+                    onPress={() => decrement()}
+                >
+                    <Text className="text-white text-lg font-bold">Decrement</Text>
+                </Pressable>
+                <Pressable
+                    className="bg-purple-600 py-4 px-8 rounded-lg mb-4 w-4/5 items-center"
+                    onPress={() => reset()}
+                >
+                    <Text className="text-white text-lg font-bold">Reset</Text>
+                </Pressable>
+            </View>
+        </View>
     );
 }
 
