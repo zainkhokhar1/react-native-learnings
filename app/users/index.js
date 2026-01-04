@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import getUsersApi from "../../Topics/Day3.js/api-calls/getUsersApi";
 import { ActivityIndicator, FlatList, Pressable, ScrollView, Text, View } from "react-native";
 import TextComponent from "../../Topics/Day1/TextComponent";
-import { useRouter } from "expo-router";
+import { useNavigation, useRouter } from "expo-router";
 
 
 export default function UsersScreen(){
@@ -10,6 +10,20 @@ export default function UsersScreen(){
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [refreshing, setRefreshing] = useState(false);
+
+    const navigation = useNavigation();
+
+    // And this will override the header options set in the layout (root layout)
+    navigation.setOptions({
+        title: 'Users List',
+        headerStyle: {
+            backgroundColor: '#37353E',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+            fontWeight: 'bold',
+        },
+    });
 
     const fetchUsers = async () => {
         let users = await getUsersApi();
