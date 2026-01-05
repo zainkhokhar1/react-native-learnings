@@ -2,10 +2,16 @@ import { View, Text, Pressable, StyleSheet } from "react-native";
 import { Link, router } from 'expo-router';
 import { CounterContext } from "../hooks/CounterHook";
 import { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { increment, decrement, reset } from "../redux-store/counter-slice";
 
 export default function Home() {
 
-    const { count, increment, decrement, reset } = useContext(CounterContext);
+    // const { count, increment, decrement, reset } = useContext(CounterContext);
+
+    const count = useSelector((state) => state.counter.value);
+
+    const dispatch = useDispatch();
 
     return (
 
@@ -25,19 +31,19 @@ export default function Home() {
                 <Text className="text-white text-lg font-bold">Count: {count}</Text>
                 <Pressable
                     className="bg-purple-600 py-4 px-8 rounded-lg mb-4 w-4/5 items-center"
-                    onPress={() => increment()}
+                    onPress={() => dispatch(increment())}
                 >
                     <Text className="text-white text-lg font-bold">Increment</Text>
                 </Pressable>
                 <Pressable
                     className="bg-purple-600 py-4 px-8 rounded-lg mb-4 w-4/5 items-center"
-                    onPress={() => decrement()}
+                    onPress={() => dispatch(decrement())}
                 >
                     <Text className="text-white text-lg font-bold">Decrement</Text>
                 </Pressable>
                 <Pressable
                     className="bg-purple-600 py-4 px-8 rounded-lg mb-4 w-4/5 items-center"
-                    onPress={() => reset()}
+                    onPress={() => dispatch(reset())}
                 >
                     <Text className="text-white text-lg font-bold">Reset</Text>
                 </Pressable>
