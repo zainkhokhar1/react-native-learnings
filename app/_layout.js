@@ -152,7 +152,7 @@ export default function RootLayout() {
                     }}
                 >
                      <Stack.Screen name="index" options={{ title: 'Home' }} />
-                     
+
                    {/* <Stack.Screen name="about" options={{ title: 'About' }} />
                     <Stack.Screen name="contact" options={{ title: 'Contact' }} />
                     <Stack.Screen name='+not-found' options={{ title: 'Oops!' }} />
@@ -162,16 +162,9 @@ export default function RootLayout() {
                         options={{
                             title: 'Modal',
                             presentation: 'modal',
-                            href: null, // this will hide the tab from the bottom tab bar  
+                            href: null, // this will hide the tab from the bottom tab bar
                         }}
                     /> */}
-
-                    <Stack.Screen
-                    name="recipes"
-                    options={{
-                        title: 'Recipe',
-                    }}
-                    />
 
                 </Stack>
 
