@@ -4,6 +4,7 @@ import { CounterContext } from "../hooks/CounterHook";
 import { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { increment, decrement, reset } from "../redux-store/counter-slice";
+import Recipe from "./recipes/index";
 
 export default function Home() {
 
@@ -15,39 +16,45 @@ export default function Home() {
 
     return (
 
-        <View className="flex-1 bg-gray-800 items-center justify-center p-5">
-            <Text className="text-4xl font-bold text-white mb-2">Home Page</Text>
-            <Text className="text-lg text-gray-300 mb-10 text-center">Welcome to your React Native App with Expo Router and Nativewind</Text>
+        // <View className="flex-1 bg-gray-800 items-center justify-center p-5">
+        //     <Text className="text-4xl font-bold text-white mb-2">Home Page</Text>
+        //     <Text className="text-lg text-gray-300 mb-10 text-center">Welcome to your React Native App with Expo Router and Nativewind</Text>
 
-            <Pressable
+        //     <Pressable
 
-                className="bg-purple-600 py-4 px-8 rounded-lg mb-4 w-4/5 items-center"
-                onPress={() => router.push('/posts')}
-            >
-                <Text className="text-white text-lg font-bold">Go to Posts</Text>
-            </Pressable>
+        //         className="bg-purple-600 py-4 px-8 rounded-lg mb-4 w-4/5 items-center"
+        //         onPress={() => router.push('/posts')}
+        //     >
+        //         <Text className="text-white text-lg font-bold">Go to Posts</Text>
+        //     </Pressable>
 
-            <View>
-                <Text className="text-white text-lg font-bold">Count: {count}</Text>
-                <Pressable
-                    className="bg-purple-600 py-4 px-8 rounded-lg mb-4 w-4/5 items-center"
-                    onPress={() => dispatch(increment())}
-                >
-                    <Text className="text-white text-lg font-bold">Increment</Text>
-                </Pressable>
-                <Pressable
-                    className="bg-purple-600 py-4 px-8 rounded-lg mb-4 w-4/5 items-center"
-                    onPress={() => dispatch(decrement())}
-                >
-                    <Text className="text-white text-lg font-bold">Decrement</Text>
-                </Pressable>
-                <Pressable
-                    className="bg-purple-600 py-4 px-8 rounded-lg mb-4 w-4/5 items-center"
-                    onPress={() => dispatch(reset())}
-                >
-                    <Text className="text-white text-lg font-bold">Reset</Text>
-                </Pressable>
-            </View>
+        //     <View>
+        //         <Text className="text-white text-lg font-bold">Count: {count}</Text>
+        //         <Pressable
+        //             className="bg-purple-600 py-4 px-8 rounded-lg mb-4 w-4/5 items-center"
+        //             onPress={() => dispatch(increment())}
+        //         >
+        //             <Text className="text-white text-lg font-bold">Increment</Text>
+        //         </Pressable>
+        //         <Pressable
+        //             className="bg-purple-600 py-4 px-8 rounded-lg mb-4 w-4/5 items-center"
+        //             onPress={() => dispatch(decrement())}
+        //         >
+        //             <Text className="text-white text-lg font-bold">Decrement</Text>
+        //         </Pressable>
+        //         <Pressable
+        //             className="bg-purple-600 py-4 px-8 rounded-lg mb-4 w-4/5 items-center"
+        //             onPress={() => dispatch(reset())}
+        //         >
+        //             <Text className="text-white text-lg font-bold">Reset</Text>
+        //         </Pressable>
+        //     </View>
+        // </View>
+        <View style={{ flex: 1, padding: 20, backgroundColor: '#fff' }}>
+            <Text style={{ fontSize: 20, marginBottom: 10 }}>
+                This is me
+            </Text>
+            <Recipe />
         </View>
     );
 }

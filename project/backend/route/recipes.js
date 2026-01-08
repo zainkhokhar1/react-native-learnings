@@ -76,4 +76,41 @@ router.get('/add',async(req,res)=>{
     }
 })
 
+router.post('/add',async(req,res)=>{
+    try {
+        if (!req.body) return res.status(500).json({
+            message:"No Data sent!"
+        })
+        let { title,ingredients,instructions,image } = req?.body;
+
+        if(!title || !ingredients || !instructions || !image){
+            return res.status(400).json({
+            message:"All fields are required!"
+        })
+    }
+
+        const newRecipe = await recipes.create({
+            title,
+            ingredients,
+            instructions,
+            image
+        });
+
+        if(!newRecipe) return res.status(500).json({
+            message:"Failed to create Recipe!"
+        });
+
+        return res.status(201).json({
+            message:"Recipe created Successfully!",
+            data:newRecipe
+        })
+
+    } catch (error) {
+        console.log(error);
+        res.send(500).json({
+            message: "Failed to send the message"
+        })
+    }
+})
+
 export default router;
