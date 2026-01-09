@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const reciepeSchema = new mongoose.Schema.create({
+const recipeSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true
@@ -10,4 +10,4 @@ const reciepeSchema = new mongoose.Schema.create({
     image: String
 })
 
-export default mongoose.model('reciepe',reciepeSchema)
+export default mongoose.model('recipe',recipeSchema)
