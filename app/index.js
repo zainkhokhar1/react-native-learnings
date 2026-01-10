@@ -50,10 +50,7 @@ export default function Home() {
         //         </Pressable>
         //     </View>
         // </View>
-        <View style={{ flex: 1, padding: 20, backgroundColor: '#fff' }}>
-            <Text style={{ fontSize: 20, marginBottom: 10 }}>
-                This is me
-            </Text>
+        <View className="flex-1 p-5 bg-white">
             <Recipe />
         </View>
     );

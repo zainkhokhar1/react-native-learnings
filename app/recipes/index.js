@@ -1,4 +1,4 @@
-import { View, Text, FlatList, Image, StyleSheet, ActivityIndicator, TouchableOpacity, RefreshControl } from "react-native";
+import { View, Text, FlatList, Image, ActivityIndicator, TouchableOpacity, RefreshControl } from "react-native";
 import { useState, useEffect } from "react";
 import { recipesApi } from "../../services/recipesApi";
 
@@ -36,59 +36,59 @@ export default function Recipe() {
     }, []);
 
     const renderRecipeItem = ({ item }) => (
-        <View style={styles.recipeCard}>
+        <View className="bg-white rounded-xl mb-4 shadow-lg overflow-hidden">
             <Image
                 source={{ uri: item.image }}
-                style={styles.recipeImage}
+                className="w-full h-52 bg-gray-200"
                 resizeMode="cover"
             />
-            <View style={styles.recipeContent}>
-                <Text style={styles.recipeTitle}>{item.title}</Text>
+            <View className="p-4">
+                <Text className="text-2xl font-bold text-gray-800 mb-3">{item.title}</Text>
 
-                <Text style={styles.sectionLabel}>Ingredients:</Text>
+                <Text className="text-base font-semibold text-purple-600 mt-3 mb-2">Ingredients:</Text>
                 {item.ingredients?.map((ingredient, index) => (
-                    <Text key={index} style={styles.ingredientText}>• {ingredient}</Text>
+                    <Text key={index} className="text-sm text-gray-600 mb-1 pl-2">• {ingredient}</Text>
                 ))}
 
-                <Text style={styles.sectionLabel}>Instructions:</Text>
-                <Text style={styles.instructionsText}>{item.instructions}</Text>
+                <Text className="text-base font-semibold text-purple-600 mt-3 mb-2">Instructions:</Text>
+                <Text className="text-sm text-gray-600 leading-5">{item.instructions}</Text>
             </View>
         </View>
     );
 
     if (loading) {
         return (
-            <View style={styles.centerContainer}>
+            <View className="flex-1 justify-center items-center p-5">
                 <ActivityIndicator size="large" color="#6200ee" />
-                <Text style={styles.loadingText}>Loading recipes...</Text>
+                <Text className="mt-2.5 text-base text-gray-600">Loading recipes...</Text>
             </View>
         );
     }
 
     if (error) {
         return (
-            <View style={styles.centerContainer}>
-                <Text style={styles.errorText}>{error}</Text>
-                <TouchableOpacity style={styles.retryButton} onPress={fetchRecipes}>
-                    <Text style={styles.retryButtonText}>Retry</Text>
+            <View className="flex-1 justify-center items-center p-5">
+                <Text className="text-base text-red-700 text-center mb-5">{error}</Text>
+                <TouchableOpacity className="bg-purple-600 px-6 py-3 rounded-lg" onPress={fetchRecipes}>
+                    <Text className="text-white text-base font-bold">Retry</Text>
                 </TouchableOpacity>
             </View>
         );
     }
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.header}>Recipes</Text>
+        <View className="flex-1 bg-gray-100">
+            <Text className="text-3xl font-bold text-gray-800 px-4 py-5 bg-white border-b border-gray-200">Recipes</Text>
             {recipes.length === 0 ? (
-                <View style={styles.centerContainer}>
-                    <Text style={styles.emptyText}>No recipes found</Text>
+                <View className="flex-1 justify-center items-center p-5">
+                    <Text className="text-base text-gray-600 text-center">No recipes found</Text>
                 </View>
             ) : (
                 <FlatList
                     data={recipes}
                     renderItem={renderRecipeItem}
                     keyExtractor={(item) => item._id}
-                    contentContainerStyle={styles.listContainer}
+                    contentContainerStyle={{ padding: 16 }}
                     showsVerticalScrollIndicator={false}
                     refreshControl={
                         <RefreshControl refreshing={refreshing} onRefresh={onRefresh} colors={['#6200ee']} />
@@ -98,99 +98,3 @@ export default function Recipe() {
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#f5f5f5',
-    },
-    header: {
-        fontSize: 28,
-        fontWeight: 'bold',
-        color: '#333',
-        paddingHorizontal: 16,
-        paddingVertical: 20,
-        backgroundColor: '#fff',
-        borderBottomWidth: 1,
-        borderBottomColor: '#e0e0e0',
-    },
-    centerContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 20,
-    },
-    loadingText: {
-        marginTop: 10,
-        fontSize: 16,
-        color: '#666',
-    },
-    errorText: {
-        fontSize: 16,
-        color: '#d32f2f',
-        textAlign: 'center',
-        marginBottom: 20,
-    },
-    emptyText: {
-        fontSize: 16,
-        color: '#666',
-        textAlign: 'center',
-    },
-    retryButton: {
-        backgroundColor: '#6200ee',
-        paddingHorizontal: 24,
-        paddingVertical: 12,
-        borderRadius: 8,
-    },
-    retryButtonText: {
-        color: '#fff',
-        fontSize: 16,
-        fontWeight: 'bold',
-    },
-    listContainer: {
-        padding: 16,
-    },
-    recipeCard: {
-        backgroundColor: '#fff',
-        borderRadius: 12,
-        marginBottom: 16,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 4,
-        elevation: 3,
-        overflow: 'hidden',
-    },
-    recipeImage: {
-        width: '100%',
-        height: 200,
-        backgroundColor: '#e0e0e0',
-    },
-    recipeContent: {
-        padding: 16,
-    },
-    recipeTitle: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        color: '#333',
-        marginBottom: 12,
-    },
-    sectionLabel: {
-        fontSize: 16,
-        fontWeight: '600',
-        color: '#6200ee',
-        marginTop: 12,
-        marginBottom: 8,
-    },
-    ingredientText: {
-        fontSize: 14,
-        color: '#555',
-        marginBottom: 4,
-        paddingLeft: 8,
-    },
-    instructionsText: {
-        fontSize: 14,
-        color: '#555',
-        lineHeight: 20,
-    },
-});
